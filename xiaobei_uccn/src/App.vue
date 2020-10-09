@@ -11,8 +11,11 @@ export default {
   name: 'App',
   mounted(){
     if (this._isMobile()) {
-        // alert("手机端");
-
+        //引入外部js文件
+        const s = document.createElement('script');
+        s.type = 'text/javascript';
+        s.src = './static/js/compatibility.js';
+        document.body.appendChild(s);
         this.$router.replace('/m_index');
       } else {
         // alert("pc端");

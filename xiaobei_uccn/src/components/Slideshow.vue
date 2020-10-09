@@ -1,5 +1,5 @@
 <template>
-  <div class="body">
+  <div class="PCbody">
     <div class="wrapper1" id="xiaobeiTrip">
       <div class="swiper-container">
         <div class="swiper-wrapper">
@@ -153,7 +153,7 @@
             <p>新闻资讯</p>
             <p>行业新闻·最新动态·市场营销</p>
           </div>
-          <div class="News" v-for="item in article">
+          <div class="News" v-for="(item,index) in article" :key="index">
             <router-link :to="{name:'NewsInquiry',params:{id:item.id}}">
               <div class="new1">
                 <img :src="item.picturePath" height="274" width="348"/>
@@ -293,9 +293,6 @@ import SlideshowMove from '@/components/SlideshowMove'
               }
             }
           })
-
-
-
         }
     }
 </script>
@@ -304,7 +301,7 @@ import SlideshowMove from '@/components/SlideshowMove'
   *{
     font-family: '微软雅黑';
   }
-  .body img{
+  .PCbody img{
     vertical-align: bottom;
   }
   .swiper-wrapper{

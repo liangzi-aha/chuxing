@@ -1,6 +1,6 @@
 <template>
-    <div class="body">
-      <div class="wrapper1" id="xiaobeiTrip">
+    <div class="phoneBody">
+      <div class="wrapper" id="xiaobeiTrip">
         <div class="swiper-container">
           <div class="swiper-wrapper">
             <div class="swiper-slide">
@@ -14,7 +14,7 @@
             </div>
           </div>
           <!-- 如果需要分页器 -->
-          <div class="swiper-pagination"></div>
+          <div class="swiper-pagination pagination1"></div>
         </div>
       </div>
       <div class="wrapper1" id="wrapper1">
@@ -58,7 +58,7 @@
             </div>
           </div>
           <!-- 如果需要分页器 -->
-          <div class="swiper-pagination"></div>
+          <div class="swiper-pagination pagination2"></div>
         </div>
       </div>
 
@@ -72,7 +72,7 @@
           提倡共享经济，实现环境资源的可持续绿色
           出行利用和交通的可持续发展，为绿色出行
           事业贡献自己力所能及的力量</p>
-        <div class="wrapper2">
+        <div class="wrapper2" id="wrapper2">
           <div class="swiper-container">
             <div class="swiper-wrapper">
               <div class="swiper-slide">
@@ -145,7 +145,7 @@
         <img src="../../static/img/homePage7.png" style="margin-bottom: 0.8rem;"/>
 
 
-        <div class="wrapper3">
+        <div class="wrapper3" id="wrapper3">
           <div class="swiper-container">
             <div class="swiper-wrapper">
               <div class="swiper-slide" style="width: 100%;height: 6.2rem;">
@@ -221,14 +221,9 @@
         },
         mounted(){
           window.onscroll = null;
-          //引入外部js文件
-          const s = document.createElement('script');
-          s.type = 'text/javascript';
-          s.src = './static/js/compatibility.js';
-          document.body.appendChild(s);
 
           //轮播图1
-          var wrapper1 = new Swiper ('.wrapper1 .swiper-container', {
+          var wrapper = new Swiper ('#xiaobeiTrip .swiper-container', {
             autoplay:true,
             direction: 'horizontal', // 垂直切换选项
             loop: true, // 循环模式选项
@@ -236,7 +231,25 @@
             observeParents:true,//修改swiper的父元素时，自动初始化swiper
             // 如果需要分页器
             pagination: {
-              el: '.swiper-pagination',
+              el: '.pagination1',
+            },
+            // 如果需要前进后退按钮
+            navigation: {
+              nextEl: '.swiper-button-next',
+              prevEl: '.swiper-button-prev',
+            }
+          })
+
+          //轮播图1
+          var wrapper1 = new Swiper ('#wrapper1 .swiper-container', {
+            autoplay:true,
+            direction: 'horizontal', // 垂直切换选项
+            loop: true, // 循环模式选项
+            observer:true,//修改swiper自己或子元素时，自动初始化swiper
+            observeParents:true,//修改swiper的父元素时，自动初始化swiper
+            // 如果需要分页器
+            pagination: {
+              el: '.pagination2',
             },
             // 如果需要前进后退按钮
             navigation: {
@@ -246,7 +259,7 @@
           })
 
           //轮播图2
-          var wrapper2 = new Swiper ('.wrapper2 .swiper-container', {
+          var wrapper2 = new Swiper ('#wrapper2 .swiper-container', {
             autoplay:true,
 //          direction: 'horizontal', // 垂直切换选项
 //          loop: false, // 循环模式选项
@@ -287,16 +300,12 @@
           })
 
           //轮播图3
-          var wrapper3 = new Swiper ('.wrapper3 .swiper-container', {
+          var wrapper3 = new Swiper ('#wrapper3 .swiper-container', {
             autoplay:true,
             direction: 'horizontal', // 垂直切换选项
             loop: true, // 循环模式选项
             observer:true,//修改swiper自己或子元素时，自动初始化swiper
             observeParents:true,//修改swiper的父元素时，自动初始化swiper
-            // 如果需要分页器
-            pagination: {
-              el: '.swiper-pagination',
-            },
             // 如果需要前进后退按钮
             navigation: {
               nextEl: '.swiper-button-next',
@@ -325,7 +334,7 @@
     vertical-align: bottom;
     width: 100%;
   }
-  .body img{
+  .phoneBody img{
     width: 100%;
     vertical-align: bottom;
   }
